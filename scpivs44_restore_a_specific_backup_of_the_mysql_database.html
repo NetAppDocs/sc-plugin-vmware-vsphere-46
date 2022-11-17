@@ -25,28 +25,8 @@
   <!-- Elastic Search -->
   <link rel="stylesheet" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
 
-  <!-- Controls AsciiDoctor Admonition Blocks -->
-  <link rel="stylesheet" type="text/css" href="/us-en/sc-plugin-vmware-vsphere-46/css/font-awesome.min.css">
-
-  <!-- Controls the shadow effect for search dropdown menu -->
-  <link rel="stylesheet" href="/us-en/sc-plugin-vmware-vsphere-46/css/boxshadowproperties.css">
-
-  <!-- NetApp CSS controls the technical content -->
-  <link rel="stylesheet" type="text/css" href="/us-en/sc-plugin-vmware-vsphere-46/css/netapp.css">
-
-  <!-- WWW CSS Content -->
-  <link rel="stylesheet" type="text/css" href="/us-en/sc-plugin-vmware-vsphere-46/css/www-luci-dotcom.min.css">
-  <link rel="stylesheet" type="text/css" href="/us-en/sc-plugin-vmware-vsphere-46/css/www-netapp-dotcom.css">
-  <link rel="stylesheet" href="/us-en/sc-plugin-vmware-vsphere-46/css/www-netapp-library-critical.min.css" media="all" >
-  <link rel="stylesheet" href="/us-en/sc-plugin-vmware-vsphere-46/css/www-netapp-library-non-critical.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="stylesheet" href="/us-en/sc-plugin-vmware-vsphere-46/css/www-netapp-library-global-header-footer.min.css">
-
-  <!-- NetApp IE Customizations -->
-  <link rel="stylesheet" href='/us-en/sc-plugin-vmware-vsphere-46/css/na-utility.css' type='text/css'>
-  <link rel="stylesheet" href='/us-en/sc-plugin-vmware-vsphere-46/css/na-sidebar.css' type='text/css'>
-  <link rel='stylesheet' href='/us-en/sc-plugin-vmware-vsphere-46/css/clouddocs.css' type='text/css'>
-  <link rel='stylesheet' href='/us-en/sc-plugin-vmware-vsphere-46/css/custom-dropdown.css' type='text/css'>
-  <link rel='stylesheet' href='/us-en/sc-plugin-vmware-vsphere-46/css/na-pagenav.css' type='text/css'>
+  <!-- Combined CSS -->
+  <link rel="stylesheet" type="text/css" href="/us-en/sc-plugin-vmware-vsphere-46/css/netappdocs.css">
 
   
   <link rel="stylesheet" href="/us-en/sc-plugin-vmware-vsphere-46/css/landing-page.css" type="text/css">
@@ -98,11 +78,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 
   <!-- Used for Product Family Page Sidebar Visibility --><!-- Used to import Promise for IE. Required for SearchKit -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script><script src='/us-en/sc-plugin-vmware-vsphere-46/js/na-search.js'></script><script src='/us-en/sc-plugin-vmware-vsphere-46/js/na-pagenav.js'></script><link rel='stylesheet' href='/us-en/sc-plugin-vmware-vsphere-46/css/prism.css' type='text/css'>
-  <link rel='stylesheet' href='/us-en/sc-plugin-vmware-vsphere-46/css/prism-netapp.css' type='text/css'>
-
-
-  <script src='/us-en/sc-plugin-vmware-vsphere-46/js/na-utility.js'></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script><script src='/us-en/sc-plugin-vmware-vsphere-46/js/na-search.js'></script><script src='/us-en/sc-plugin-vmware-vsphere-46/js/na-pagenav.js'></script><script src='/us-en/sc-plugin-vmware-vsphere-46/js/na-utility.js'></script>
   <script src='/us-en/sc-plugin-vmware-vsphere-46/js/clouddocs.js'></script>
   <script src='/us-en/sc-plugin-vmware-vsphere-46/js/jquery.navgoco.min.js'></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -141,6 +117,17 @@
           $("#expandAll").click(function(e) {
               e.preventDefault();
               $("#mysidebar").navgoco('toggle', true);
+          });
+
+          $(".sidebar-nav-container").on("scroll", function() {
+            $.cookie("sidebarScroll", $(".sidebar-nav-container").scrollTop(), {
+              path    : "/us-en/sc-plugin-vmware-vsphere-46"  
+            });
+          });
+          $(function() {
+            if ($.cookie("sidebarScroll")) {
+              $(".sidebar-nav-container").scrollTop($.cookie("sidebarScroll"));
+            }
           });
 
       });
@@ -288,6 +275,8 @@
       </div>
 
       
+      
+      
       <div class="search-property-bar">
         <div id="search-demo-container" class="searchbox n-property-bar__search">
           <div id="react-search" 
@@ -334,6 +323,10 @@
           <a href="https://docs.netapp.com/zh-tw/sc-plugin-vmware-vsphere-46/scpivs44_restore_a_specific_backup_of_the_mysql_database.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
         </li><li>
           <a href="https://docs.netapp.com/ko-kr/sc-plugin-vmware-vsphere-46/scpivs44_restore_a_specific_backup_of_the_mysql_database.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/fr-fr/sc-plugin-vmware-vsphere-46/scpivs44_restore_a_specific_backup_of_the_mysql_database.html" target="_self"><span translate="no" class="notranslate">Français</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/de-de/sc-plugin-vmware-vsphere-46/scpivs44_restore_a_specific_backup_of_the_mysql_database.html" target="_self"><span translate="no" class="notranslate">Deutsch</span></a>
         </li></ul>
     </div><!-- End Language Selector -->
 
@@ -966,7 +959,7 @@
     ><a href="#">
         <div class="na-navbar-padding"> Concepts</div>
       </a>
-      <ul>
+      <ul style="display: none;">
         <li 
       data-pdf-exists="true" 
       data-pdf-filename="Product overview"
@@ -1031,7 +1024,7 @@
     ><a href="#">
         <div class="na-navbar-padding"> Get started</div>
       </a>
-      <ul>
+      <ul style="display: none;">
         <li 
       data-pdf-exists="true" 
       data-pdf-filename="Deployment Overview"
@@ -1061,7 +1054,7 @@
     ><a href="#">
         <div class="na-navbar-padding"> Requirements for deploying SCV</div>
       </a>
-      <ul>
+      <ul style="display: none;">
         <li 
       data-pdf-exists="true" 
       data-pdf-filename="Deployment planning and requirements"
@@ -1119,7 +1112,7 @@
     ><a href="#">
         <div class="na-navbar-padding"> Quick start</div>
       </a>
-      <ul>
+      <ul style="display: none;">
         <li 
       data-pdf-exists="true" 
       data-pdf-filename="Overview"
@@ -1170,7 +1163,7 @@
     ><a href="#">
         <div class="na-navbar-padding"> Monitor and report</div>
       </a>
-      <ul>
+      <ul style="display: none;">
         <li 
       data-pdf-exists="true" 
       data-pdf-filename="View status information"
@@ -1221,7 +1214,7 @@
     ><a href="#">
         <div class="na-navbar-padding"> Manage storage</div>
       </a>
-      <ul>
+      <ul style="display: none;">
         <li 
       data-pdf-exists="true" 
       data-pdf-filename="Add storage"
@@ -1251,7 +1244,7 @@
     ><a href="#">
         <div class="na-navbar-padding"> Protect data</div>
       </a>
-      <ul>
+      <ul style="display: none;">
         <li 
       data-pdf-exists="true" 
       data-pdf-filename="Data protection workflow"
@@ -1344,7 +1337,7 @@
     ><a href="#">
         <div class="na-navbar-padding"> Mount and unmount datastores</div>
       </a>
-      <ul>
+      <ul style="display: none;">
         <li 
       data-pdf-exists="true" 
       data-pdf-filename="Mount a backup"
@@ -1367,7 +1360,7 @@
     ><a href="#">
         <div class="na-navbar-padding"> Restore from backups</div>
       </a>
-      <ul>
+      <ul style="display: none;">
         <li 
       data-pdf-exists="true" 
       data-pdf-filename="Overview"
@@ -1446,7 +1439,7 @@
     ><a href="#">
         <div class="na-navbar-padding"> Restore guest files and folders</div>
       </a>
-      <ul>
+      <ul style="display: none;">
         <li 
       data-pdf-exists="true" 
       data-pdf-filename="Workflow, prerequisites, and limitations"
@@ -1497,7 +1490,7 @@
     ><a href="#">
         <div class="na-navbar-padding"> Manage SnapCenter Plug-in for VMware vSphere appliance</div>
       </a>
-      <ul>
+      <ul style="display: none;">
         <li 
       data-pdf-exists="true" 
       data-pdf-filename="Restart the VMware vSphere web client service"
@@ -1555,7 +1548,7 @@
     ><a href="#">
         <div class="na-navbar-padding"> Manage your configuration</div>
       </a>
-      <ul>
+      <ul style="display: none;">
         <li 
       data-pdf-exists="true" 
       data-pdf-filename="Modify time zones"
@@ -1620,7 +1613,7 @@
     ><a href="#">
         <div class="na-navbar-padding"> REST APIs</div>
       </a>
-      <ul>
+      <ul style="display: none;">
         <li 
       data-pdf-exists="true" 
       data-pdf-filename="Overview"
@@ -1720,7 +1713,7 @@
     ><a href="#">
         <div class="na-navbar-padding"> Upgrade</div>
       </a>
-      <ul>
+      <ul style="display: none;">
         <li 
       data-pdf-exists="true" 
       data-pdf-filename="Upgrade from an earlier release of SnapCenter Plug-in for VMware vSphere"
@@ -1760,6 +1753,7 @@
 </script>
 <!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
 <script>$("li.active").parents('li').toggleClass("active");</script>
+<script>$("#mysidebar li.active").parents('ul').css("display","block");</script>
 
 
   </div>
@@ -1880,11 +1874,7 @@ backups</strong>, and then make a note of the backup you want to restore.</p>
         <div class="n-footer__copyright">
           <ul class="n-footer__copyright-list">
             <li class="n-footer__copyright-link">
-              <span class="n-footer__fine-print">Have feedback for our website?</span>
-              <a target="_self" href="javascript:netapp_mailto()">Let us know</a>
-            </li>
-            <li class="n-footer__copyright-link">
-              <a href="https://docs.netapp.com/us-en/announcements/">Announcements</a>
+              <a target="_self" href="javascript:netapp_mailto()">Send feedback about this page</a>
             </li>
           </ul>
         </div>
